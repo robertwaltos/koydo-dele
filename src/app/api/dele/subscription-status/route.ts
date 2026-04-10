@@ -1,16 +1,40 @@
 import { NextResponse } from "next/server";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function GET() {
-  try {
-    // TODO: Wire to Supabase auth + subscription check
-    console.warn("[DELE API] /api/dele/subscription-status returning stub data — Supabase not wired");
+  const supabase = await createSupabaseServerClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
     return NextResponse.json({
       isAuthenticated: false,
       active: false,
       premiumActive: false,
+      plan: "free",
+      provider: null,
+      isInTrial: false,
+      expiresAt: null,
+      willRenew: false,
     });
-  } catch (error) {
-    console.error("[DELE API] /api/dele/subscription-status error:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
+
+  const { data: sub } = await supabase
+    .from("subscriptions")
+    .select("status, plan_id, current_period_end, is_in_trial, cancel_at_period_end, provider")
+    .eq("user_id", user.id)
+    .in("status", ["active", "trialing"])
+    .order("updated_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  return NextResponse.json({
+    isAuthenticated: true,
+    active: !!sub,
+    premiumActive: !!sub,
+    plan: sub?.plan_id ?? "free",
+    provider: sub?.provider ?? null,
+    isInTrial: sub?.is_in_trial ?? false,
+    expiresAt: sub?.current_period_end ?? null,
+    willRenew: sub ? !sub.cancel_at_period_end : false,
+  });
 }
