@@ -1,0 +1,16 @@
+Prepare for DELE with Koydo — the AI-powered exam prep platform.
+
+FEATURES:
+• Hundreds of practice questions matching the real exam format
+• AI tutor providing instant, detailed explanations
+• Score prediction using advanced analytics
+• Track your progress across all subjects and sections
+• Study offline — download questions for on-the-go learning
+• Free tier: 10 questions per day, forever free
+
+WHO IS THIS FOR?
+Language learners preparing for DELE (Global). Suitable for ages 12-45.
+
+This app is a study aid based on publicly available syllabus and exam patterns. Not affiliated with any official examination authority.
+
+© Koydo. Privacy: https://dele.koydo.app/privacy
