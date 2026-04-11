@@ -5,7 +5,7 @@ import { updateSupabaseSession } from "@/lib/supabase/middleware";
  * Public routes that do NOT require authentication.
  * Everything else (learn, practice, results, etc.) requires a logged-in user.
  */
-const PUBLIC_PREFIXES = ["/auth", "/api", "/pricing", "/privacy", "/terms", "/sampler"];
+const PUBLIC_PREFIXES = ["/auth", "/api", "/pricing", "/privacy", "/terms", "/sampler", "/learn"];
 
 function isPublicRoute(pathname: string): boolean {
   if (pathname === "/") return true;
