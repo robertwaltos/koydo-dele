@@ -229,8 +229,8 @@ export default function DeleQuiz() {
                   className={[
                     "rounded-lg border px-4 py-2 text-sm font-medium transition-all",
                     skill === s.id
-                      ? "border-blue-600 bg-blue-600 text-white"
-                      : "border-zinc-200 bg-white text-zinc-700 hover:border-blue-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300",
+                      ? "border-red-600 bg-red-600 text-white"
+                      : "border-zinc-200 bg-white text-zinc-700 hover:border-red-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300",
                   ].join(" ")}
                 >
                   {s.label}
@@ -250,7 +250,7 @@ export default function DeleQuiz() {
             type="button"
             onClick={fetchQuestions}
             disabled={loading}
-            className="w-full rounded-xl bg-blue-600 px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-blue-700 disabled:opacity-50 sm:w-auto"
+            className="w-full rounded-xl bg-red-600 px-6 py-3 text-lg font-bold text-white transition-colors hover:bg-red-700 disabled:opacity-50 sm:w-auto"
           >
             {loading ? "Cargando..." : "Comenzar practica"}
           </button>
@@ -265,7 +265,7 @@ export default function DeleQuiz() {
     return (
       <main className="flex min-h-screen items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600" />
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-red-200 border-t-red-600" />
           <p className="text-sm text-zinc-500">Cargando preguntas...</p>
         </div>
       </main>
@@ -314,14 +314,14 @@ export default function DeleQuiz() {
               <button
                 type="button"
                 onClick={fetchQuestions}
-                className="rounded-xl border border-blue-600 px-6 py-2 text-sm font-bold text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950"
+                className="rounded-xl border border-red-600 px-6 py-2 text-sm font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950"
               >
                 Repetir
               </button>
               <button
                 type="button"
                 onClick={handleReset}
-                className="rounded-xl bg-blue-600 px-6 py-2 text-sm font-bold text-white hover:bg-blue-700"
+                className="rounded-xl bg-red-600 px-6 py-2 text-sm font-bold text-white hover:bg-red-700"
               >
                 Cambiar filtros
               </button>
@@ -346,7 +346,7 @@ export default function DeleQuiz() {
           <div className="flex-1">
             <div className="h-2 w-full overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
               <motion.div
-                className="h-full rounded-full bg-blue-600"
+                className="h-full rounded-full bg-red-600"
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
               />
@@ -387,8 +387,8 @@ export default function DeleQuiz() {
                   borderClass = "border-red-500";
                   bgClass = "bg-red-50 dark:bg-red-950";
                 } else if (isSelected && !showCorrectness) {
-                  borderClass = "border-blue-500";
-                  bgClass = "bg-blue-50 dark:bg-blue-950";
+                  borderClass = "border-red-500";
+                  bgClass = "bg-red-50 dark:bg-red-950";
                 }
 
                 return (
@@ -401,14 +401,14 @@ export default function DeleQuiz() {
                       "flex items-start gap-3 rounded-xl border p-4 text-start transition-all",
                       borderClass,
                       bgClass,
-                      showResult ? "cursor-default" : "cursor-pointer hover:border-blue-300",
+                      showResult ? "cursor-default" : "cursor-pointer hover:border-red-300",
                     ].join(" ")}
                   >
                     <span
                       className={[
                         "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold",
                         isSelected
-                          ? "bg-blue-600 text-white"
+                          ? "bg-red-600 text-white"
                           : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400",
                       ].join(" ")}
                     >
@@ -425,9 +425,9 @@ export default function DeleQuiz() {
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
-                className="rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-900 dark:bg-blue-950"
+                className="rounded-xl border border-red-200 bg-amber-50 p-4 dark:border-amber-900 dark:bg-amber-950"
               >
-                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                   Explicacion
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
@@ -451,7 +451,7 @@ export default function DeleQuiz() {
             type="button"
             onClick={handleSubmit}
             disabled={selectedIndex === null}
-            className="rounded-lg bg-blue-600 px-6 py-2 text-sm font-bold text-white hover:bg-blue-700 disabled:opacity-40"
+            className="rounded-lg bg-red-600 px-6 py-2 text-sm font-bold text-white hover:bg-red-700 disabled:opacity-40"
           >
             {!showResult
               ? "Comprobar"
