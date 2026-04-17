@@ -1,0 +1,37 @@
+{
+  "app_name": "DELE (Spanish proficiency)",
+  "domain": "exam_prep",
+  "prices": {
+    "us": {
+      "monthly_cents": 1000,
+      "annual_cents": 5900,
+      "lifetime_cents": 11900,
+      "local_currency_text": null
+    },
+    "in": {
+      "monthly_cents": 299,
+      "annual_cents": 2400,
+      "lifetime_cents": null,
+      "local_currency_text": null
+    },
+    "br": {
+      "monthly_cents": 399,
+      "annual_cents": 2900,
+      "lifetime_cents": null,
+      "local_currency_text": null
+    },
+    "mx": null,
+    "ng": {
+      "monthly_cents": 199,
+      "annual_cents": 1900,
+      "lifetime_cents": null,
+      "local_currency_text": null
+    },
+    "eu": null
+  },
+  "arpu_cents_est": null,
+  "ltv_cents_est": null,
+  "free_tier": "Full A1 → A2 placement test + 1 mock DELE B1 reading + speaking AI grader on 3 prompts.",
+  "updated_at": "2026-04-17",
+  "source": "koydo_web/docs/wiki/flywheel/pricing"
+}
